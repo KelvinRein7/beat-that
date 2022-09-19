@@ -67,9 +67,12 @@
         <br /><br />Compare. <strong>HIGHER</strong> score wins. <br /><br />
         NOW LET'S ROLL THE DICES.
       </p>
-      <input id="input-field" />
+
       <br />
-      <button id="submit-button">Roll</button>
+      <button id="roll-button">Roll</button>
+      <button id="optionOne">1</button>
+      <button id="optionTwo">2</button>
+      <button id="score-button">Final Score</button>
       <p>In-game:</p>
       <div id="output-div"></div>
     </div>
@@ -77,18 +80,44 @@
     <script src="script.js"></script>
     <!-- Define button click functionality -->
     <script>
-      var button = document.querySelector("#submit-button");
-      button.addEventListener("click", function () {
-        // Set result to input value
-        var input = document.querySelector("#input-field");
-        var result = main(input.value);
+      var roll = document.querySelector("#roll-button");
 
-        // Display result in output element
-        var output = document.querySelector("#output-div");
-        output.innerHTML = result;
+      var optionOne = document.querySelector("#optionOne");
 
-        // Reset input value
-        input.value = "";
+      var optionTwo = document.querySelector("#optionTwo");
+
+      var scoreButton = document.querySelector("#score-button");
+
+      roll.addEventListener("click", function () {
+        if (gameState == diceRoll) {
+          var output = document.querySelector("#output-div");
+          var result = main(document.querySelector("#roll-button").value);
+          output.innerHTML = result;
+        }
+      });
+
+      optionOne.addEventListener("click", function () {
+        if (gameState == chooseDiceOrder) {
+          var output = document.querySelector("#output-div");
+          var result = main("1");
+          output.innerHTML = result;
+        }
+      });
+
+      optionTwo.addEventListener("click", function () {
+        if (gameState == chooseDiceOrder) {
+          var output = document.querySelector("#output-div");
+          var result = main("2");
+          output.innerHTML = result;
+        }
+      });
+
+      scoreButton.addEventListener("click", function () {
+        if (gameState == findWinner) {
+          var output = document.querySelector("#output-div");
+          var result = main(document.querySelector("#score-button").value);
+          output.innerHTML = result;
+        }
       });
     </script>
   </body>
