@@ -1,1 +1,1 @@
-# beat-that-khunthurein
+# beat-that-basics-khunthurein
