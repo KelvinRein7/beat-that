@@ -1,1 +1,1 @@
-# beat-that-basics-khunthurein
+# Rocket Academy Coding Basics: Beat That!
